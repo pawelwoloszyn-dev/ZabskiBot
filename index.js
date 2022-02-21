@@ -20,7 +20,7 @@ exports.helloPubSub = (event, context) => {
 
         console.log('Looking for recent tweets in hashtag: ', message);
         
-        T.get('statuses/user_timeline', {screen_name: 'ZabskiBot', count: 1}, function(err, result, response) {
+        T.get('statuses/user_timeline', { screen_name: 'ZabskiBot', count: 1 }, function(err, result, response) {
             if (result) {
                 console.log('Since id: ', result[0].id_str);
                 T.get('search/tweets', { q: message, result_type: 'recent', since_id: result[0].id_str }, function(err, data, response) {
